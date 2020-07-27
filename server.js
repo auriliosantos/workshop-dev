@@ -57,6 +57,18 @@ server.get("/ideias", function(req, res) {
     })
 })
 
+server.get("/deletarIdeia", function(req, res) {
+    delId = [req.query.id]
+    db.run(`DELETE FROM ideas WHERE id = ?`, delId, function(err) {
+        if (err) {
+            console.log(err)
+            return res.send("Erro no Banco de Dados!")
+        }
+
+        return res.redirect("/ideias")
+    })
+})
+
 server.post("/", function(req, res) {
     const query = `
             INSERT INTO ideas(

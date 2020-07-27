@@ -9,7 +9,10 @@
             <div class="description">
                 {{idea.description}}
             </div>
-            <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
+            <nav>
+                <a href="{{idea.link}}" target="_blank">Ir para a ideia</a>
+                <a href="/deletarIdeia?id={{idea.id}}">Deletar ideia</a>
+            </nav>
         </div>
     </div>
 {% endfor %}
